@@ -117,10 +117,15 @@ td:nth-last-child(-n+2) {
 }
   </style>
 
-<body>
+<body onload="onload();">
 <h1>I230 Infosüsteemide analüüs ja projekteerimine (kevad 2017)</h1>
-<h2>Praktikum 1, Ülesanne 1</h2>
+<h3>Meeskond ISA</h3>
 <h3>Koostajad: Martin Nõukas, Semjon Greef, Arti Zirk, Joosep Koort, Roomet Saadi</h3>
+<h2>Sisukord</h2>
+<p id="sisukord"></p>
+
+
+<h2>Praktikum 1, Ülesanne 1</h2>
 <p>Praktikum 1 ülesande koostamiseks valisime väljamõeldud organisatsiooni Pirate Netflix mis tegutseb video voogedastusega üldiselt meelelahutus eesmärkideks.
 </p>
     <b>Organisatsiooni igapäevane toimimine</b>
@@ -459,4 +464,26 @@ Klientidele pakutavateks teenusteks on:
 
 <img src="praktikum7.png">
 
+<h2>Lingid</h2>
+<p>
+    <ul>
+        <li><a href="https://github.com/artizirk/analuus">GitHub Repositorium</a></li>
+    </ul>
+</p>
+
+<script>
+function onload() {
+    let sisukord = "<ol>";
+    let sisukordEl = document.getElementById("sisukord");
+    for (let el of document.querySelectorAll("h2")) {
+        if (el.innerHTML == "Sisukord") {
+            continue
+        }
+        el.id=el.innerText
+        sisukord += `<li><a href="#${el.id}">${el.innerText}</li>`
+    }
+    sisukord += "</ol>"
+    sisukordEl.innerHTML = sisukord;
+}
+</script>
 </body></html>
